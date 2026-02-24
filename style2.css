@@ -51,10 +51,9 @@ border-style: solid;
 table{
 text-align: center;
 margin-top: 1%;
-margin-bottom: 1%;
 empty-cells: show;
-height: 90%;
-width: 90%;
+height: 100%;
+width: 100%;
 }
 
 td{
