@@ -52,3 +52,12 @@ height: 20%;
 overflow: auto;
 /* be-less-stupid: 100%; */
 }
+
+li{
+list-style-type: none;
+color: #949494c0;
+}
+
+ul{
+list-style-type: none;
+}
