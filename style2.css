@@ -73,3 +73,9 @@ color: #949494c0;
 ul{
 list-style-type: none;
 }
+
+p{
+text-align: center;
+font-size:25px;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
