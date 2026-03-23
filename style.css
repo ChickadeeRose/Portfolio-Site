@@ -56,7 +56,8 @@ height: 20%;
 overflow: auto;
 /* be-less-stupid: 100%; */
 text-align: center;
-font-size: larger;
+font-size: large;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 li{
@@ -83,4 +84,21 @@ width: 20px;
 
 img{
 border-radius: 20px;
+}
+
+a{
+color: #0b1f0cc7;
+font-family: fantasy;
+}
+
+a:visited{
+color:#225725c7;
+}
+
+a:hover{
+color:#349939c7;
+}
+
+a:active{
+color:#246e28c7;
 }
