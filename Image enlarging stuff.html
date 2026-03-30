@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Image Click to Enlarge</title>
+            <style>
+                img {
+                    cursor: pointer;
+                    transition: transform 0.3s ease;
+                }
+                /* Enlarged image style */
+                .enlarged {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) scale(0.3);
+                    z-index: 1000;
+                    box-shadow: 0 0 20px rgba(0, 0, 0, 0.801);
+                }
+                /* Dark background overlay */
+                .overlay {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.815);
+                    z-index: 999;
+                }
+            </style>
+    </head>
+    <body>
+
+        <table>
+            <tr>
+                <td><img src="Images/rock.jpg" alt="Image 1"></td>
+                <td><img src="Images/TSATS.jpg" alt="Image 2"></td>
+                <td><img src="Images/CrystalMoon.jpg" alt="Image 3"></td>
+            </tr>
+        </table>
+
+        <script>
+            const images = document.querySelectorAll("td img");
+            let enlargedImage = null;
+            let overlay = null;
+
+            images.forEach(img => {
+                img.addEventListener("click", (e) => {
+                    e.stopPropagation(); // Prevent triggering document click
+                    if (enlargedImage === img) {
+                        closeImage();
+                    } else {
+                        openImage(img);
+                    }
+                });
+            });
+
+            document.addEventListener("click", () => {
+                closeImage();
+            });
+
+            function openImage(img) {
+                closeImage(); // Close any existing enlarged image
+                img.classList.add("enlarged");
+
+                overlay = document.createElement("div");
+                overlay.classList.add("overlay");
+                document.body.appendChild(overlay);
+
+                overlay.addEventListener("click", closeImage);
+                enlargedImage = img;
+            }
+
+            function closeImage() {
+                if (enlargedImage) {
+                    enlargedImage.classList.remove("enlarged");
+                    enlargedImage = null;
+                }
+                if (overlay) {
+                    overlay.remove();
+                    overlay = null;
+                }
+            }
+        </script>
+
+    </body>
+</html>

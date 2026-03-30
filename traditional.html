@@ -73,6 +73,51 @@
                             <td><img id="tableimg" src="Images/Placeholder✨✨.png" width="100%" alt="PLACEHOLDER IMAGE CHAT :D"></td>
                         </tr>
                     </table>
+
+                        <script>
+                            const images = document.querySelectorAll("td img");
+                            let enlargedImage = null;
+                            let overlay = null;
+
+                            images.forEach(img => {
+                                img.addEventListener("click", (e) => {
+                                    e.stopPropagation(); // Prevent triggering document click
+                                    if (enlargedImage === img) {
+                                        closeImage();
+                                    } else {
+                                        openImage(img);
+                                    }
+                                });
+                            });
+
+                            document.addEventListener("click", () => {
+                                closeImage();
+                            });
+
+                            function openImage(img) {
+                                closeImage(); // Close any existing enlarged image
+                                img.classList.add("enlarged");
+
+                                overlay = document.createElement("div");
+                                overlay.classList.add("overlay");
+                                document.body.appendChild(overlay);
+
+                                overlay.addEventListener("click", closeImage);
+                                enlargedImage = img;
+                            }
+
+                            function closeImage() {
+                                if (enlargedImage) {
+                                    enlargedImage.classList.remove("enlarged");
+                                    enlargedImage = null;
+                                }
+                                if (overlay) {
+                                    overlay.remove();
+                                    overlay = null;
+                                }
+                            }
+                        </script>
+
                 </article> 
             <footer>
                 <br>

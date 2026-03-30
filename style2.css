@@ -105,3 +105,28 @@ color:#603499c7;
 a:active{
 color:#301788;
 }
+
+/* Enlarged image style */
+.enlarged {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.2);
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.801);
+}
+
+/* Dark background overlay */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.815);
+        z-index: 999;
+    }
+        img {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
